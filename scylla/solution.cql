@@ -23,7 +23,7 @@ FROM users_posts
 WHERE user_id = 1
 LIMIT 1;
 
-SELECT post_id, content, created_at, username
+SELECT post_id, content, created_at
 FROM users_posts
 WHERE user_id = 1 AND created_at > '2026-03-12';
 
