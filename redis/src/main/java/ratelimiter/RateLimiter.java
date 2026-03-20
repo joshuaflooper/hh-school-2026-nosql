@@ -38,7 +38,7 @@ public class RateLimiter {
     value = redis.lindex(key, maxRequestCount - 1);
 
     if (value != null
-        && now - Long.parseLong(value) < timeWindowMilli) {
+        && now - Long.parseLong(value) <= timeWindowMilli) {
       return false;
     }
 
