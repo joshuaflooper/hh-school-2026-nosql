@@ -32,6 +32,6 @@ ORDER BY hour DESC;
 -- 5. Запрос: Процент ошибок (status_code >= 400) для каждого endpoint'а
 SELECT 
     endpoint, 
-    count(CASE WHEN status_code >= 400 THEN 1 ELSE NULL END) / count(*) * 100 AS errors_percentage
+    countIf(status_code >= 400) / count(*) * 100 AS errors_percentage
 FROM server_logs
 GROUP BY endpoint;
