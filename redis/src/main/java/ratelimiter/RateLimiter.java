@@ -43,6 +43,8 @@ public class RateLimiter {
     }
 
     redis.lpush(key, String.valueOf(now));
+    redis.ltrim(key, 0, maxRequestCount - 1);
+// Оставляем только последние (по времени выполнения) maxRequestCount запросов, потому что в будущем нас будут интересовать они
     return true;
   }
 
